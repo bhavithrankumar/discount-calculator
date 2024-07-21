@@ -8,7 +8,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
+import org.mockito.Mockito;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.ArrayList;
@@ -30,11 +30,6 @@ class DiscountCalculatorServiceApplicationTests {
 	@Mock
 	private DiscountCalculationService discountCalculationService;
 
-	@BeforeEach
-	public void setUp() {
-		MockitoAnnotations.openMocks(this);
-	}
-
 	@Test
 	public void testPrintReceipt() {
 
@@ -48,9 +43,7 @@ class DiscountCalculatorServiceApplicationTests {
 		items.add(cloth);
 		items.add(drink);
 
-		when(discountCalculationService.calculateDiscount(book)).thenReturn(0.77);
-		when(discountCalculationService.calculateDiscount(cloth)).thenReturn(3.78);
-		when(discountCalculationService.calculateDiscount(drink)).thenReturn(7.22);
+		when(discountCalculationService.calculateDiscount(Mockito.any())).thenReturn(0.77,3.78,7.22);
 		when(discountCalculationService.round(anyDouble())).thenAnswer(invocation -> {
 			Double arg = invocation.getArgument(0);
 			return Math.round(arg * 100.0) / 100.0;
