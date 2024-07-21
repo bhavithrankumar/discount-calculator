@@ -3,7 +3,7 @@ package com.verramobility;
 import com.verramobility.daoimpl.DiscountCalculationService;
 import com.verramobility.dto.ComponentDto;
 import com.verramobility.dto.ResponseDto;
-import com.verramobility.service.DiscountCalculatorService;
+import com.verramobility.service.DiscountCalculatorServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -25,7 +25,7 @@ class DiscountCalculatorServiceApplicationTests {
 	void contextLoads() {
 	}
 	@InjectMocks
-	private DiscountCalculatorService discountCalculatorService;
+	private DiscountCalculatorServiceImpl discountCalculatorService;
 
 	@Mock
 	private DiscountCalculationService discountCalculationService;
